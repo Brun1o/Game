@@ -1,0 +1,39 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+}
+
+h1, h2, h3, h4, h5 {
+    background-color: aqua;
+    border-bottom: 2px solid blue;
+}
+.flex-container {
+    display: flex;
+    background-color: dodgerblue;
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+}
+
+.flex-container > div {
+    width: 50vw;
+    height: 100vh;
+    margin: 3px;
+    text-align: center;
+  }
+
+#interface {
+    background-color: beige;
+    color: darkslategray;
+}
+
+#game {
+    background-image: url("https://i.pinimg.com/originals/46/64/b8/4664b84c57b05f6312595048957f1f53.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
