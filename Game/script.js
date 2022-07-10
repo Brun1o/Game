@@ -71,6 +71,7 @@ window.onload = function(){
     function draw(){
         ctx.clearRect(0,0,cnv.width,cnv.height);
         carro.draw(ctx);
+        carro.rotate(ctx);
     }
 
     function loop(){
