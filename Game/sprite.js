@@ -1,10 +1,11 @@
-function Sprite(img){
+function Sprite(img, posX, posY){
     //Atributos
     this.mvRight = this.mvLeft = this.mvUp = this.mvDown = false;   
     this.srcX = this.srcY = 0;
     this.width = 96;
     this.height = 96;
-    this.posX = this.posY = 0;
+    this.posX = posX;
+    this.posY = posY;
     this.img = img;
     this.speed = 1;
     this.rotation = 0;
