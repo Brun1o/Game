@@ -2,7 +2,7 @@ function Sprite(img, posX, posY){
     //Atributos
     this.mvRight = this.mvLeft = this.mvUp = this.mvDown = false;   
     this.srcX = this.srcY = 0;
-    this.width = 96;
+    this.width = 54;
     this.height = 96;
     this.posX = posX;
     this.posY = posY;
