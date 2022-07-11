@@ -7,19 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="game/sprite.js"></script>
     <script src="game/script.js"></script>
+    <script src="game/style.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>CarClicker</title>
 </head>
 
 <body>
     <div class="flex-container">
-        <div id="game">
+        <div class="game">
         <canvas width="800" height="600"></canvas>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque delectus quasi ipsum non, labore voluptate similique minus molestiae nam dignissimos odit quisquam illum eos in voluptas quos placeat magnam et!
         </div>
         <div id="interface">
             <nav>
-                <button>geral</button>
+                <button onclick="changeStyle()">Change Style</button>
+                <button onclick="changeSpeed(-0.5)">+</button>
+                <button onclick="changeSpeed(0.5)">-</button>
                 <button>motor</button>
                 <button>suspenção</button>
                 <button>cambio</button>

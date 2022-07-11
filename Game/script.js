@@ -11,6 +11,7 @@ window.onload = function(){
     window.addEventListener("keydown",keydownHandler,false);
     window.addEventListener("keyup",keyupHandler,false);
 
+
     function keydownHandler(e){
         switch(e.keyCode){
             case RIGHT:

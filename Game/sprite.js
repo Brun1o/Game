@@ -15,7 +15,7 @@ function Sprite(img, posX, posY){
         ctx.save();
         ctx.translate(this.posX + this.width/2, this.posY + this.height/2);
         ctx.rotate(this.rotation);
-        ctx.drawImage(this.img,this.srcX,this.srcY,this.width,this.height,-this.width/2,-this.height/2,this.width,this.height);
+        ctx.drawImage(this.img,this.srcX,this.srcY,this.width,this.height,-this.width/3,-this.height/2,this.width,this.height);
         ctx.restore();
     }
     // Rotate the sprite based on the direction of movement

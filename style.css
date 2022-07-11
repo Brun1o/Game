@@ -28,10 +28,9 @@ h1, h2, h3, h4, h5 {
     color: darkslategray;
 }
 
-#game {
+.game {
     /* background-image: url mapa.png; */
     background-image: url("img/mapa.png");
-    background-repeat: repeat;
     background-position: center;
     color: aliceblue;
     display: flex;
