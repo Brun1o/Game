@@ -60,15 +60,6 @@ function Sprite(img){
         if(this.mvLeft){
             this.posX -= this.speed;
             // this.srcY = this.height * 1;
-        } else
-        if (this.mvUp){
-            this.posY -= this.speed;
-            this.srcY = this.height * 3;
-        } else
-        if (this.mvDown){
-            this.posY += this.speed;
-            // this.srcY = this.height * 0;
-        };
-
+        }
     };
     };
