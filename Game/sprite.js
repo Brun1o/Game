@@ -7,11 +7,15 @@ function Sprite(img){
     this.posX = this.posY = 0;
     this.img = img;
     this.speed = 1;
-    // félix
     this.rotation = 0;
     //Métodos
     this.draw = function(ctx){
         this.rotate(ctx);
+        ctx.save();
+        ctx.translate(this.posX + this.width/2, this.posY + this.height/2);
+        ctx.rotate(this.rotation);
+        ctx.drawImage(this.img,this.srcX,this.srcY,this.width,this.height,-this.width/2,-this.height/2,this.width,this.height);
+        ctx.restore();
     }
     // Rotate the sprite based on the direction of movement
     this.maxRotation = function(n){
@@ -22,25 +26,29 @@ function Sprite(img){
         if (n < -max) {
             return -max;
         }
+        return n;
     }
+    // rotate car back to 0 degrees smoothly
+    this.rotate_back = function(ctx){
+        min_max = 0.01
+        if (this.rotation > min_max || this.rotation < -min_max) {
+            this.rotation = this.rotation * 0.9;
+        }
+        else {
+            this.rotation = 0;
+        }
+    }
+
     this.rotate = function(ctx){
         console.log(this.rotation);
         if(this.mvRight){
             this.rotation += Math.PI/180;
-        }
-        if(this.mvLeft){
+        }else if(this.mvLeft){
             this.rotation -= Math.PI/180;
+        }else {
+            this.rotate_back(ctx);
         }
-        
-        if (this.rotation > this.maxRotation(this.rotation)) {
-            this.rotation = this.maxRotation(this.rotation);
-        }
-
-        ctx.save();
-        ctx.translate(this.posX + this.width/2, this.posY + this.height/2);
-        ctx.rotate(this.rotation);
-        ctx.drawImage(this.img,this.srcX,this.srcY,this.width,this.height,-this.width/2,-this.height/2,this.width,this.height);
-        ctx.restore();
+        this.rotation = this.maxRotation(this.rotation);
     }
     
     //Move
