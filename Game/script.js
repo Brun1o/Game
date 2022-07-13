@@ -6,7 +6,9 @@ window.onload = function(){
     var ctx = cnv.getContext("2d"); //pega o contexto do canvas
     var spriteSheet = new Image();
     spriteSheet.src = "img/car.png";
-    var carro = new Sprite(spriteSheet, cnv_width/2, cnv_height/2);
+    var carro = new Sprite(spriteSheet, cnv_width/2, cnv_height/2, cnv_width);
+    var car = new Player(spriteSheet, cnv_width/2, cnv_height/4, cnv_width);
+    var enemy = new Enemy(spriteSheet, cnv_width/2, 0, cnv_width);
 
     window.addEventListener("keydown",keydownHandler,false);
     window.addEventListener("keyup",keyupHandler,false);
@@ -15,30 +17,13 @@ window.onload = function(){
     function keydownHandler(e){
         switch(e.keyCode){
             case RIGHT:
-                carro.mvRight = true;
-                carro.mvLeft = false;
-                carro.mvUp = false;
-                carro.mvDown = false;
+                carro.move("right");
+                car.move("right");
                 break;
             case LEFT:
-                carro.mvRight = false;
-                carro.mvLeft = true;
-                carro.mvUp = false;
-                carro.mvDown = false;
+                carro.move("left");
+                car.move("left");
                 break;
-            case UP:
-                carro.mvRight = false;
-                carro.mvLeft = false;
-                carro.mvUp = true;
-                carro.mvDown = false;
-                break;
-            case DOWN:
-                carro.mvRight = false;
-                carro.mvLeft = false;
-                carro.mvUp = false;
-                carro.mvDown = true;
-                break;
-            
         }
     }
 
@@ -49,12 +34,6 @@ window.onload = function(){
                 break;
             case LEFT:
                 carro.mvLeft = false;
-                break;
-            case DOWN:
-                carro.mvDown = false;
-                break;
-            case UP:
-                carro.mvUp = false;
                 break;
         }
     }
@@ -68,17 +47,22 @@ window.onload = function(){
     }
 
     function update(){
-        carro.move();
+        // carro.move();
     }
 
     function draw(){
         ctx.clearRect(0,0,cnv.width,cnv.height);
         carro.draw(ctx);
+        car.draw(ctx);
+        enemy.draw(ctx);
     }
 
     function loop(){
         window.requestAnimationFrame(loop,cnv);
         update();
+        carro.move();
+        car.move();
+        enemy.move();
         draw();
     }
 }
