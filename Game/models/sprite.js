@@ -3,8 +3,8 @@ class Car{
         this.img = img;
         this.x = x;
         this.y = y;
-        this.width = 54;
-        this.height = 96;
+        this.width = 48;
+        this.height = 122;
     }
 
     draw(ctx){
