@@ -6,9 +6,11 @@ window.onload = function(){
     var ctx = cnv.getContext("2d"); //pega o contexto do canvas
     var spriteSheet = new Image();
     spriteSheet.src = "img/car.png";
+    var obstaculoSprite = new Image()
+    obstaculoSprite.src = "img/obstaculo.png";
     var carro = new Sprite(spriteSheet, cnv_width/2, cnv_height/2, cnv_width);
     var car = new Player(spriteSheet, cnv_width/2, cnv_height/4, cnv_width);
-    var enemy = new Enemy(spriteSheet, cnv_width/2, 0, cnv_width);
+    var enemy = new Enemy(obstaculoSprite, cnv_width/2, 0, cnv_width);
 
     window.addEventListener("keydown",keydownHandler,false);
     window.addEventListener("keyup",keyupHandler,false);
