@@ -9,8 +9,10 @@ window.onload = function(){
     var obstaculoSprite = new Image()
     obstaculoSprite.src = "img/obstaculo.png";
     var carro = new Sprite(spriteSheet, cnv_width/2, cnv_height/2, cnv_width);
-    var car = new Player(spriteSheet, cnv_width/2, cnv_height/4, cnv_width);
-    var enemy = new Enemy(obstaculoSprite, cnv_width/2, 0, cnv_width);
+
+    var faixa = new Faixa(cnv_width/2, cnv_height/2);
+    var carrin = new Jogador(spriteSheet, cnv_width/3, cnv_height/3);
+    faixa.adicionarNaFaixa(carrin);
 
     window.addEventListener("keydown",keydownHandler,false);
     window.addEventListener("keyup",keyupHandler,false);
@@ -20,11 +22,9 @@ window.onload = function(){
         switch(e.keyCode){
             case RIGHT:
                 carro.move("right");
-                car.move("right");
                 break;
             case LEFT:
                 carro.move("left");
-                car.move("left");
                 break;
         }
     }
@@ -55,16 +55,13 @@ window.onload = function(){
     function draw(){
         ctx.clearRect(0,0,cnv.width,cnv.height);
         carro.draw(ctx);
-        car.draw(ctx);
-        enemy.draw(ctx);
+        faixa.desenharItemsDaFaixa(ctx);
     }
 
     function loop(){
         window.requestAnimationFrame(loop,cnv);
         update();
         carro.move();
-        car.move();
-        enemy.move();
         draw();
     }
 }
