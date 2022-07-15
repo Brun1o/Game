@@ -8,6 +8,8 @@ class Carro {
         this.angulo = 0;
         this.velocidade = 1;
         this.dest = 0;
+        this.width = 48;
+        this.height = 122;
     }
 
     toJson() {
